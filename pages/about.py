@@ -1,7 +1,19 @@
 import streamlit as st
 
 def main():
-    st.title("About")
+    # Custom CSS for styling
+    custom_css = """
+        <style>
+            .about-title {
+                color: #FF504D; /* Change text color for the about title */
+                text-align: left;
+            }
+        </style>
+    """
+    # Apply custom CSS
+    st.markdown(custom_css, unsafe_allow_html=True)
+
+    st.markdown("<h2 class='about-title'>About</h2>", unsafe_allow_html=True)
     st.write("""
     Auto Value Pro is a web application designed to predict the price of a car based on various factors.
     
