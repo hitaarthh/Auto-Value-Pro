@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Auto Value Pro",
-    page_icon="🚗",
+    page_icon="",
     layout="centered",
     initial_sidebar_state="auto"
 )
@@ -67,14 +67,18 @@ selected_company = st.selectbox("Select the Company:", company_options)
 selected_model = st.selectbox("Select the Model:", model_options)
 selected_year = st.selectbox("Select the Year of Purchase:", year_options)
 selected_fuel = st.selectbox("Select the Fuel Type:", fuel_options)
+
+# Create columns for "Transmission Type" and "Number of Previous Owners"
+col1, col2 = st.columns(2)
+
+with col1:
+    transmission_type = st.radio("Transmission Type", ["Manual", "Automatic"])
+
+with col2:
+    num_previous_owners = st.slider("Number of Previous Owners", min_value=0, max_value=5, value=1, step=1)
+
 kilometers_driven = st.number_input("Enter the Number of Kilometers Driven:")
 selected_algorithm = st.selectbox("Choose the Prediction Algorithm:", algorithm_options)
-
-# Switch to select transmission type
-transmission_type = st.radio("Transmission Type", ["Manual", "Automatic"])
-
-# Slider to select number of previous owners
-num_previous_owners = st.slider("Number of Previous Owners", min_value=0, max_value=5, value=1, step=1)
 
 # Button to trigger prediction with center alignment
 predict_button = st.button("Predict Car Price", help="Click to predict car price", key="predict_button")
