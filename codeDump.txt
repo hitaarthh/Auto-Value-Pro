@@ -1,47 +1,4 @@
-import streamlit as st
-
-# Custom CSS for styling
-custom_css = """
-    <style>
-        .navbar {
-            background-color: #FF504D;
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            margin: 0 10px;  /* Adjusted margin for better spacing */
-            font-weight: bold;
-        }
-    </style>
-"""
-
-# Apply custom CSS
-st.markdown(custom_css, unsafe_allow_html=True)
-
-# Navigation bar
-st.markdown(
-    """
-    <div class="navbar">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-
-# Title, subtitle, and description with center alignment
-st.markdown("<h1 style='text-align: center;'>Auto Value Pro</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center;'>A Vehicle Valuation Wizard</h3>", unsafe_allow_html=True)
-st.write("This app predicts the price of a car you want to sell or buy. Try filling the details below:")
-
+# Rest of your app content goes here (forms, buttons, etc.)
 # Form to accept data
 company_options = ["Company A", "Company B", "Company C"]  # Add your actual list of car companies
 model_options = ["Model X", "Model Y", "Model Z"]  # Add your actual list of car models
@@ -73,3 +30,6 @@ if predict_button:
     # Add your machine learning prediction logic here and display the result
     # For example: predicted_price = predict_price(selected_company, selected_model, selected_year, selected_fuel, kilometers_driven, selected_algorithm, transmission_type, num_previous_owners)
     # st.write(f"Predicted Price: ${predicted_price}")
+# Check if the user navigated to the About page
+if st.session_state.page == "about":
+    about_page()
