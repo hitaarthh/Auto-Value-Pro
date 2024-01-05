@@ -1,5 +1,5 @@
 import streamlit as st
-
+from pages import home, about, contact
 st.set_page_config(
     page_title="Auto Value Pro",
     page_icon="",
@@ -95,10 +95,9 @@ if predict_button:
     # For example: predicted_price = predict_price(selected_company, selected_model, selected_year, selected_fuel, kilometers_driven, selected_algorithm, transmission_type, num_previous_owners)
     # st.write(f"Predicted Price: ${predicted_price}")
 
-# Sidebar content based on the selected page
 if page == "Home":
-    st.sidebar.markdown("You are on the Home page.")
+    home.show()
 elif page == "About":
-    st.sidebar.markdown("You are on the About page.")
+    about.show()
 elif page == "Contact":
-    st.sidebar.markdown("You are on the Contact page.")
+    contact.show()
