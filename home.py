@@ -1,5 +1,5 @@
 import streamlit as st
-from pages import home, about, contact
+from pages import about, contact
 st.set_page_config(
     page_title="Auto Value Pro",
     page_icon="",
@@ -36,9 +36,9 @@ custom_css = """
 # Apply custom CSS
 st.markdown(custom_css, unsafe_allow_html=True)
 
-# Sidebar
-st.sidebar.markdown("# Navigation")
-page = st.sidebar.radio("Go to", ["Home", "About", "Contact"])
+# # Sidebar
+# st.sidebar.markdown("# Navigation")
+# page = st.sidebar.radio("Go to", ["Home", "About", "Contact"])
 
 # Title, subtitle, and description with center alignment
 st.markdown("<h2 class='title-text'>Auto Value Pro : A Vehicle Valuation Wizard</h2>", unsafe_allow_html=True)
@@ -95,9 +95,9 @@ if predict_button:
     # For example: predicted_price = predict_price(selected_company, selected_model, selected_year, selected_fuel, kilometers_driven, selected_algorithm, transmission_type, num_previous_owners)
     # st.write(f"Predicted Price: ${predicted_price}")
 
-if page == "Home":
-    home.show()
-elif page == "About":
-    about.show()
-elif page == "Contact":
-    contact.show()
+# if page == "Home":
+#     home.show()
+# elif page == "About":
+#     about.show()
+# elif page == "Contact":
+#     contact.show()
