@@ -31,17 +31,9 @@ custom_css = """
 # Apply custom CSS
 st.markdown(custom_css, unsafe_allow_html=True)
 
-# Navigation bar
-st.markdown(
-    """
-    <div class="navbar">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# Sidebar
+st.sidebar.markdown("# Navigation")
+page = st.sidebar.radio("Go to", ["Home", "About", "Contact"])
 
 # Title, subtitle, and description with center alignment
 st.markdown("<h2 style='text-align: center;'>Auto Value Pro : A Vehicle Valuation Wizard</h2>", unsafe_allow_html=True)
@@ -63,22 +55,30 @@ algorithm_options = [
 ]
 
 # User input forms
-selected_company = st.selectbox("Select the Company:", company_options)
-selected_model = st.selectbox("Select the Model:", model_options)
-selected_year = st.selectbox("Select the Year of Purchase:", year_options)
-selected_fuel = st.selectbox("Select the Fuel Type:", fuel_options)
-
-# Create columns for "Transmission Type" and "Number of Previous Owners"
 col1, col2 = st.columns(2)
-
 with col1:
-    transmission_type = st.radio("Transmission Type", ["Manual", "Automatic"])
-
+    selected_company = st.selectbox("Select the Company:", company_options)
 with col2:
+    selected_model = st.selectbox("Select the Model:", model_options)
+
+col3, col4 = st.columns(2)
+with col3:
+    selected_year = st.selectbox("Select the Year of Purchase:", year_options)
+with col4:
+    selected_fuel = st.selectbox("Select the Fuel Type:", fuel_options)
+
+col5, col6 = st.columns(2)
+with col5:
+    transmission_type = st.radio("Transmission Type", ["Manual", "Automatic"])
+with col6:
     num_previous_owners = st.slider("Number of Previous Owners", min_value=0, max_value=5, value=1, step=1)
 
-kilometers_driven = st.number_input("Enter the Number of Kilometers Driven:")
-selected_algorithm = st.selectbox("Choose the Prediction Algorithm:", algorithm_options)
+col7, col8 = st.columns(2)
+
+with col7:
+    kilometers_driven = st.number_input("Enter the Number of Kilometers Driven:")
+with col8:
+    selected_algorithm = st.selectbox("Choose the Prediction Algorithm:", algorithm_options)
 
 # Button to trigger prediction with center alignment
 predict_button = st.button("Predict Car Price", help="Click to predict car price", key="predict_button")
@@ -89,3 +89,11 @@ if predict_button:
     # Add your machine learning prediction logic here and display the result
     # For example: predicted_price = predict_price(selected_company, selected_model, selected_year, selected_fuel, kilometers_driven, selected_algorithm, transmission_type, num_previous_owners)
     # st.write(f"Predicted Price: ${predicted_price}")
+
+# Sidebar content based on the selected page
+if page == "Home":
+    st.sidebar.markdown("You are on the Home page.")
+elif page == "About":
+    st.sidebar.markdown("You are on the About page.")
+elif page == "Contact":
+    st.sidebar.markdown("You are on the Contact page.")
