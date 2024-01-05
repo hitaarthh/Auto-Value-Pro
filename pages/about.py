@@ -10,28 +10,25 @@ def main():
     - Click on the "Predict Car Price" button.
     - The app uses machine learning algorithms to predict the price of the selected car.
     
-    ### Features:
-    - Predict car prices using different algorithms like Linear Regression, Random Forest, etc.
-    - User-friendly interface for easy input.
-    - Explore predictions for various car configurations.
-    
-    ### Developers:
-    - This app is developed by [Your Name].
-    - Contact us for any inquiries or feedback.
+    _**Disclaimer**: The predictions provided by this app are for reference purposes only. Actual market conditions may vary._
+
     
     ### Technologies Used:
     - Streamlit
     - Python
     - Machine Learning Libraries (e.g., scikit-learn)
     
-    **Disclaimer**: The predictions provided by this app are for reference purposes only. Actual market conditions may vary.
+     ### Developers:
+    - Hitarth Rohra (AM.EN.U4EAC21032)
+    - Ansh Grover (AM.EN.U4EAC21015)
+    - Amodh Anil (AM.EN.U4EAC21010)
+    - Anirudh K (AM.EN.U4EAC21012)
+    - Nandana V V (AM.EN.U4EAC21052)  
+                    
+    **Repository Link**: https://github.com/hitaarthh/Auto-Value-Pro
+             
+    **Data Set**: https://github.com/hitaarthh/Auto-Value-Pro/tree/main/dataset         
     """)
-
-    st.markdown("### Contact Us:")
-    st.write("For any inquiries or feedback, please contact us at [your.email@example.com].")
-
-    st.markdown("### Acknowledgments:")
-    st.write("We would like to thank the Streamlit community and the developers of the underlying libraries that made this app possible.")
 
 if __name__ == "__main__":
     main()
