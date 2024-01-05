@@ -47,7 +47,14 @@ model_options = ["Model X", "Model Y", "Model Z"]  # Add your actual list of car
 year_options = list(range(2000, 2021))[::-1]  # Reverse the list of years from 2000 to 2020
 year_options.append(1995)
 fuel_options = ["Petrol", "Diesel", "LPG"]
-algorithm_options = ["Linear Regression", "Random Forest", "Decision Tree"]  # Add more algorithms as needed
+algorithm_options = [
+    "Linear Regression",
+    "Random Forest",
+    "Decision Trees",
+    "Gradient Boosting",
+    "Support Vector Machines (SVM)",
+    "K-Nearest Neighbors (KNN)"
+]
 
 # User input forms
 selected_company = st.selectbox("Select the Company:", company_options)
