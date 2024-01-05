@@ -25,6 +25,11 @@ custom_css = """
             margin: 0 10px;  /* Adjusted margin for better spacing */
             font-weight: bold;
         }
+
+        .title-text {
+            color: #FF504C; /* Change text color for title text */
+            text-align: center;
+        }
     </style>
 """
 
@@ -36,7 +41,7 @@ st.sidebar.markdown("# Navigation")
 page = st.sidebar.radio("Go to", ["Home", "About", "Contact"])
 
 # Title, subtitle, and description with center alignment
-st.markdown("<h2 style='text-align: center;'>Auto Value Pro : A Vehicle Valuation Wizard</h2>", unsafe_allow_html=True)
+st.markdown("<h2 class='title-text'>Auto Value Pro : A Vehicle Valuation Wizard</h2>", unsafe_allow_html=True)
 st.markdown("<div style='text-align: center;'>This app predicts the price of a car you want to sell or buy. Try filling the details below:</div>", unsafe_allow_html=True)
 
 # Form to accept data
