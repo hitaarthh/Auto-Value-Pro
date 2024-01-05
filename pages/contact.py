@@ -13,7 +13,7 @@ def main():
     # Apply custom CSS
     st.markdown(custom_css, unsafe_allow_html=True)
 
-    st.markdown("<h2 class='about-title'>Contact Us</h2>", unsafe_allow_html=True)
+    st.markdown("<h1 class='about-title'>Contact Us</h1>", unsafe_allow_html=True)
 
     st.write("""
     **For any inquiries or feedback, please contact us at hitarth.rohra@gmail.com**
