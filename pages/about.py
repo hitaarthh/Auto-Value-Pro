@@ -18,7 +18,7 @@ def main():
     st.write("""
     Auto Value Pro is a web application designed to predict the price of a car based on various factors.
     
-    ### How it Works:
+    #### How it Works:
     - Select the car company, model, year of purchase, fuel type, and other relevant details.
     - Click on the "Predict Car Price" button.
     - The app uses machine learning algorithms to predict the price of the selected car.
@@ -26,12 +26,12 @@ def main():
     _**Disclaimer**: The predictions provided by this app are for reference purposes only. Actual market conditions may vary._
 
     
-    ### Technologies Used:
+    #### Technologies Used:
     - Streamlit
     - Python
     - Machine Learning Libraries (e.g., scikit-learn)
     
-     ### Developers:
+     #### Developers:
     - Hitarth Rohra (AM.EN.U4EAC21032)
     - Ansh Grover (AM.EN.U4EAC21015)
     - Amodh Anil (AM.EN.U4EAC21010)
