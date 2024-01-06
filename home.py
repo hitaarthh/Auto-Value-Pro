@@ -62,29 +62,27 @@ algorithm_options = [
 # User input forms
 col1, col2 = st.columns(2)
 with col1:
-    selected_company = st.selectbox("Select the Company:", company_options)
+    selected_company = st.selectbox(f"##### Select the Company:", company_options)
 with col2:
-    selected_model = st.selectbox("Select the Model:", model_options)
+    selected_model = st.selectbox("##### Select the Model:", model_options)
 
 col3, col4 = st.columns(2)
 with col3:
-    selected_year = st.selectbox("Select the Year of Purchase:", year_options)
+    selected_year = st.selectbox("##### Select the Year of Purchase:", year_options)
 with col4:
-    selected_fuel = st.selectbox("Select the Fuel Type:", fuel_options)
+    selected_fuel = st.selectbox("##### Select the Fuel Type:", fuel_options)
 
 col5, col6 = st.columns(2)
 with col5:
-    transmission_type = st.radio("Transmission Type:", ["Manual", "Automatic"])
+    transmission_type = st.radio("##### Transmission Type:", ["Manual", "Automatic"])
 with col6:
-    num_previous_owners = st.slider("Number of Previous Owners:", min_value=0, max_value=5, value=1, step=1)
+    num_previous_owners = st.slider("##### Number of Previous Owners:", min_value=0, max_value=5, value=1, step=1)
 
 col7, col8 = st.columns(2)
 with col7:
-    kilometers_driven = st.number_input("Enter the Number of Kilometers Driven:")
+    kilometers_driven = st.number_input("##### Enter the Number of Kilometers Driven:")
 with col8:
-    selected_algorithm = st.selectbox("Choose the Prediction Algorithm:", algorithm_options)
-
-
+    selected_algorithm = st.selectbox("##### Choose the Prediction Algorithm:", algorithm_options)
 
 col9, col10 = st.columns(2)
 with col9:

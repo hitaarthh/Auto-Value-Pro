@@ -39,9 +39,9 @@ def main():
     - Anirudh K (AM.EN.U4EAC21012)
     - Nandana V V (AM.EN.U4EAC21052)  
                     
-    **Repository Link**: https://github.com/hitaarthh/Auto-Value-Pro
+    [Source Code](https://github.com/hitaarthh/Auto-Value-Pro)
              
-    **Data Set**: https://github.com/hitaarthh/Auto-Value-Pro/tree/main/dataset         
+    [Data Set Used](https://github.com/hitaarthh/Auto-Value-Pro/tree/main/dataset)      
     """)
 
 if __name__ == "__main__":
