@@ -30,7 +30,8 @@ custom_css = """
 
 # Apply custom CSS
 st.markdown(custom_css, unsafe_allow_html=True)
-
+st.sidebar.markdown("You are on the Home Page")
+# page = st.sidebar.radio("Go to")
 # # Sidebar
 # st.sidebar.markdown("# Navigation")
 # page = st.sidebar.radio("Go to", ["Home", "About", "Contact"])

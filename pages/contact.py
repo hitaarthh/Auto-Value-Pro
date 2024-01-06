@@ -13,7 +13,7 @@ def main():
     """
     # Apply custom CSS
     st.markdown(custom_css, unsafe_allow_html=True)
-
+    st.sidebar.markdown("You are on the Contact Page")
     st.markdown("<h2 class='about-title'>Contact Us</h2>", unsafe_allow_html=True)
 
     st.write("""
