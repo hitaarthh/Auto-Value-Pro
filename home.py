@@ -48,7 +48,7 @@ year_options.append(1995)
 fuel_options = ["Petrol", "Diesel", "LPG"]
 algorithm_options = [
     "Linear Regression",
-    "Random Forest Re",
+    "Random Forest Regressor",
     "Decision Trees Regressor",
     "Gradient Boosting",
     "Support Vector Machines (SVM)",
