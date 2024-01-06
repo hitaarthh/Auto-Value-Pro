@@ -95,7 +95,7 @@ base_price_for_high_mileage = 100000
 
 def perform_actions(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven):
     if kilometers_driven < max_thresholdDriven:
-         st.success(f"Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} kms driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
+         st.success(f"###### Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} kms driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
     else: 
         st.success(f"Attention: Your car has been driven more than {max_thresholdDriven} kilometers, indicating high mileage.")
         st.success(f"Considering this, the estimated selling price has been adjusted to a base price of ${base_price_for_high_mileage}.")
@@ -107,7 +107,7 @@ def perform_actions(selected_company, selected_model, selected_year, kilometers_
 
 def modelReportFunc(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven):
     perform_actions(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven)
-    st.markdown(f"Model Report:")
+    st.markdown(f"##### Model Report:")
     st.markdown(f"- Here are the attributes associated with the chosen algorithm, {selected_algorithm}, revealing the model's performance indicators.")
 
 # Display results if the button is pressed
