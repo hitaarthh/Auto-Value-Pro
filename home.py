@@ -85,11 +85,12 @@ with col8:
     selected_algorithm = st.selectbox("Choose the Prediction Algorithm:", algorithm_options)
 
 
+
 col9, col10 = st.columns(2)
 with col9:
-    predict_button = st.button("Predict Car Price", help="Click to predict car price", key="predict_button")
+    predict_button = st.button("Predict Car Price", help="Click to predict car price", key="predict_button", use_container_width=True)
 with col10:
-    modelReport = st.button("Model Report", help="Click to model report", key="model_report")
+    modelReport = st.button("Model Report", help="Click to model report", key="model_report",use_container_width=True)
 
 max_thresholdDriven = 200000
 base_price_for_high_mileage = 100000
