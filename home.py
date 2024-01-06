@@ -4,6 +4,10 @@ st.set_page_config(page_title="Auto Value Pro", page_icon="🚗", layout="wide")
 # Custom CSS for styling
 custom_css = """
     <style>
+    body {
+            font-size: 18px;  /* Adjust the font size as needed */
+        }
+
         .navbar {
             background-color: #FF504D;
             padding: 10px;

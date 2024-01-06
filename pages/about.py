@@ -30,7 +30,7 @@ def main():
     #### Technologies Used:
     - Streamlit
     - Python
-    - Machine Learning Libraries (e.g., scikit-learn)
+    - Machine Learning Libraries
     
      #### Developers:
     - Hitarth Rohra (AM.EN.U4EAC21032)
