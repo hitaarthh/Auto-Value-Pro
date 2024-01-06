@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(page_title="Auto Value Pro", page_icon="🚗", layout="wide")
+st.set_page_config(page_title="About", page_icon="🚗", layout="wide")
 
 def main():
     # Custom CSS for styling
