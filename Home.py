@@ -8,8 +8,20 @@ import os
 #Importing datasets and the Machine learning models
 df = pd.read_csv("dataset/Cleaned_Car_data.csv")
 #Loading the pickle file of the model.
-model_path = os.path.abspath('LinearRegressionModel.pkl')
-lrModel = pickle.load(open('LinearRegressionModel.pkl', 'rb'))
+lrmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
+dtmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
+rfmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
+svmmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
+kmeansmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
+gbmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
+
+lrModel = pickle.load(open(lrmodel_path, 'rb'))
+dtModel = pickle.load(open(dtmodel_path, 'rb'))
+rfModel = pickle.load(open(rfmodel_path, 'rb'))
+svmModel = pickle.load(open(svmmodel_path, 'rb'))
+kmeansModel = pickle.load(open(kmeansmodel_path, 'rb'))
+GradientBoostModel = pickle.load(open(gbmodel_path, 'rb'))
+
 
 #<!-The Machine Learning importing part ends here!>
 
@@ -117,10 +129,10 @@ base_price_for_high_mileage = 100000
 def perform_actions(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven,prediction):
     if kilometers_driven < max_thresholdDriven:
          st.success(f"###### Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} kms driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
-         st.success(f"###### Predicted Price: {round(prediction[0], 2)}")
+         st.success(f"###### Predicted Price: {round(prediction,2)}")
     else: 
         st.success(f"Attention: Your car has been driven more than {max_thresholdDriven} kilometers, indicating high mileage.")
-        st.success(f"Considering this, the estimated selling price has been adjusted to a base price of ${base_price_for_high_mileage}.")
+        st.success(f"Considering this, the estimated selling price has been adjusted to a base price of {base_price_for_high_mileage}.")
 
 def modelReportFunc(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven,prediction):
     with st.spinner("Generating model report..."):
@@ -134,18 +146,19 @@ def model_selection():
     if selected_algorithm == "Linear Regression":
         y_predict = lrModel.predict(testingData)
     elif selected_algorithm == "Random Forest Regressor":
-        y_predict = lrModel.predict(testingData)
+        y_predict = rfModel.predict(testingData)
     elif selected_algorithm ==  "Decision Trees Regressor":
-        y_predict = lrModel.predict(testingData)
+        y_predict = dtModel.predict(testingData)
     elif selected_algorithm == "Gradient Boosting":
-        y_predict = lrModel.predict(testingData)
+        y_predict = GradientBoostModel.predict(testingData)
     elif selected_algorithm == "Support Vector Machines (SVM)":
-        y_predict = lrModel.predict(testingData)
+        y_predict = svmModel.predict(testingData)
     elif selected_algorithm == "K-Nearest Neighbors (KNN)":
-        y_predict = lrModel.predict(testingData)
+        y_predict = kmeansModel.predict(testingData)
     else:
         y_predict=["0.00"]
-    return y_predict
+    y_predic=y_predict[0]
+    return y_predic
 
 # Display results if the button is pressed
 if predict_button:
