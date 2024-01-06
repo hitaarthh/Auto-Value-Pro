@@ -94,8 +94,6 @@ max_thresholdDriven = 200000
 base_price_for_high_mileage = 100000
 
 def perform_actions(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven):
-    with st.spinner("Calculating the price..."):
-        time.sleep(3)  # Simulate a delay for calculations
     if kilometers_driven < max_thresholdDriven:
          st.success(f"###### Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} kms driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
     else: 
@@ -109,13 +107,15 @@ def perform_actions(selected_company, selected_model, selected_year, kilometers_
 
 def modelReportFunc(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven):
     with st.spinner("Generating model report..."):
-        time.sleep(2)  # Simulate a delay for calculations
+        time.sleep(3)  # Simulate a delay for calculations
     perform_actions(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven)
     st.markdown(f"##### Model Report:")
     st.markdown(f"- Here are the attributes associated with the chosen algorithm, {selected_algorithm}, revealing the model's performance indicators.")
 
 # Display results if the button is pressed
 if predict_button:
+    with st.spinner("Calculating the price..."):
+        time.sleep(3)  # Simulate a delay for calculations
     perform_actions(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven)
 if modelReport:
     modelReportFunc(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven)
