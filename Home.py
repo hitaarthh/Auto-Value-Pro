@@ -4,11 +4,12 @@ import pandas as pd
 import pickle
 import os
 
+
 #Importing datasets and the Machine learning models
 df = pd.read_csv("dataset/Cleaned_Car_data.csv")
-model_path = os.path.join('model', 'LinearRegressionModel.pkl')
-
+os.chdir(os.path.dirname('LinearRegressionModel.pkl'))
 #Loading the pickle file of the model.
+model_path = os.path.join('model', 'LinearRegressionModel.pkl')
 lrModel = pickle.load(open(model_path, 'rb'))
 
 #<!-The Machine Learning importing part ends here!>
