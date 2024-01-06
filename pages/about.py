@@ -33,7 +33,7 @@ def main():
     - Machine Learning Libraries
     
      #### Developers:
-    - Hitarth Rohra (AM.EN.U4EAC21032)
+    - Hitarth Anand Rohra (AM.EN.U4EAC21032)
     - Ansh Grover (AM.EN.U4EAC21015)
     - Amodh Anil (AM.EN.U4EAC21010)
     - Anirudh K (AM.EN.U4EAC21012)
