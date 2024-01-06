@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(page_title=f"## Auto Value Pro", page_icon="🚗", layout="wide")
+st.set_page_config(page_title=f"Auto Value Pro", page_icon="🚗", layout="wide")
 
 # Custom CSS for styling
 custom_css = """
@@ -41,8 +41,8 @@ st.sidebar.markdown("You are on the Home Page")
 # page = st.sidebar.radio("Go to", ["Home", "About", "Contact"])
 
 # Title, subtitle, and description with center alignment
-st.markdown("<h2 class='title-text'>Auto Value Pro : A Vehicle Valuation Wizard</h2>", unsafe_allow_html=True)
-st.markdown("<div style='text-align: center;'>This app predicts the price of a car you want to sell or buy. Try filling the details below:</div>", unsafe_allow_html=True)
+st.markdown("<h1 class='title-text'>Auto Value Pro : A Vehicle Valuation Wizard</h1>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: center;'>This app predicts the price of a car you want to sell or buy. Try filling the details below:</h5>", unsafe_allow_html=True)
 st.markdown(f"")
 # Form to accept data
 company_options = ["Company A", "Company B", "Company C"]  # Add your actual list of car companies
