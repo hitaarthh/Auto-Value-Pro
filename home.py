@@ -101,6 +101,7 @@ if predict_button:
 if modelReport:
     st.success(f"Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} km driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
     st.markdown(f"Model Report:")
+    st.markdown(f"- Here are the attributes associated with the chosen algorithm, {selected_algorithm}, revealing the model's performance indicators.")
 # if page == "Home":
 #     home.show()
 # elif page == "About":
