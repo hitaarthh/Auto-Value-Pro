@@ -1,5 +1,6 @@
 import streamlit as st
 st.set_page_config(page_title="Auto Value Pro", page_icon="🚗", layout="wide")
+
 # Custom CSS for styling
 custom_css = """
     <style>
@@ -46,8 +47,8 @@ year_options.append(1995)
 fuel_options = ["Petrol", "Diesel", "LPG"]
 algorithm_options = [
     "Linear Regression",
-    "Random Forest",
-    "Decision Trees",
+    "Random Forest Regressor",
+    "Decision Trees Regressor",
     "Gradient Boosting",
     "Support Vector Machines (SVM)",
     "K-Nearest Neighbors (KNN)"
@@ -73,14 +74,18 @@ with col6:
     num_previous_owners = st.slider("Number of Previous Owners", min_value=0, max_value=5, value=1, step=1)
 
 col7, col8 = st.columns(2)
-
 with col7:
     kilometers_driven = st.number_input("Enter the Number of Kilometers Driven:")
 with col8:
     selected_algorithm = st.selectbox("Choose the Prediction Algorithm:", algorithm_options)
 
-# Button to trigger prediction with center alignment
-predict_button = st.button("Predict Car Price", help="Click to predict car price", key="predict_button")
+
+col9, col10 = st.columns(2)
+with col9:
+    predict_button = st.button("Predict Car Price", help="Click to predict car price", key="predict_button")
+with col10:
+    modelReport = st.button("Model Report", help="Click to model report", key="model_report")
+
 
 # Display results if the button is pressed
 if predict_button:
