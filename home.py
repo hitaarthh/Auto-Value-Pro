@@ -47,7 +47,7 @@ year_options.append(1995)
 fuel_options = ["Petrol", "Diesel", "LPG"]
 algorithm_options = [
     "Linear Regression",
-    "Random Forest Regressor",
+    "Random Forest Re",
     "Decision Trees Regressor",
     "Gradient Boosting",
     "Support Vector Machines (SVM)",
@@ -93,7 +93,9 @@ if predict_button:
     # Add your machine learning prediction logic here and display the result
     # For example: predicted_price = predict_price(selected_company, selected_model, selected_year, selected_fuel, kilometers_driven, selected_algorithm, transmission_type, num_previous_owners)
     # st.write(f"Predicted Price: ${predicted_price}")
-
+if modelReport:
+    st.success(f"Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} km driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
+    st.markdown(f"Model Report:")
 # if page == "Home":
 #     home.show()
 # elif page == "About":
