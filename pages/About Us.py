@@ -1,16 +1,22 @@
 import streamlit as st
 st.set_page_config(page_title="About Us", page_icon="🚗", layout="wide")
 
+
 def main():
     # Custom CSS for styling
     custom_css = """
-        <style>
-            .about-title {
+    <style>
+    body {
+        font-size: 18px;  /* Adjust the font size as needed */
+    }
+
+    .about-title {
                 color: #FF504D; /* Change text color for the about title */
                 text-align: left;
             }
-        </style>
+    </style>
     """
+
     # Apply custom CSS
     st.markdown(custom_css, unsafe_allow_html=True)
     st.sidebar.markdown("You are on the About Page")
