@@ -202,7 +202,7 @@ def model_selection():
     elif selected_algorithm == "Gradient Boosting":
         y_predict = gb_pipeline.predict(testingData)
     elif selected_algorithm == "Support Vector Machines (SVM)":
-        y_predict = svmModel.predict(testingData)
+        y_predict = sv_pipeline.predict(testingData)
     else:
         y_predict=["0.00"]
     # y_predic=y_predict[0]
