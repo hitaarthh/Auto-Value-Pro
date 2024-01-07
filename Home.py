@@ -3,9 +3,6 @@ import time
 import pandas as pd
 import pickle
 import os
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 #Importing datasets and the Machine learning models
 df = pd.read_csv("dataset/Cleaned_Car_data.csv")
@@ -176,7 +173,7 @@ def perform_actions(selected_company, selected_model, selected_year, kilometers_
     value=prediction[0]
     if kilometers_driven < max_thresholdDriven:
          st.success(f"###### Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} kms driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
-         st.success(f"###### Predicted Price: {round(value,2)}")
+         st.success(f"###### Predicted Price: ₹{round(value,2)}")
     else: 
         st.success(f"Attention: Your car has been driven more than {max_thresholdDriven} kilometers, indicating high mileage.")
         st.success(f"Considering this, the estimated selling price has been adjusted to a base price of {base_price_for_high_mileage}.")
