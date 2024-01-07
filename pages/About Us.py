@@ -21,7 +21,7 @@ def main():
     st.markdown(custom_css, unsafe_allow_html=True)
     st.sidebar.markdown("You are on the About Page")
 
-    st.markdown("<h2 class='about-title'>About Us</h2>", unsafe_allow_html=True)
+    st.markdown("<h1 class='about-title'>About Us</h1>", unsafe_allow_html=True)
     st.write("""
     Auto Value Pro is a web application designed to predict the price of a car based on various factors.
     
