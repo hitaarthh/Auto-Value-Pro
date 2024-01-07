@@ -165,7 +165,9 @@ testingData = pd.DataFrame({
     'company':selected_company,
     'year': selected_year,
     'kms_driven':kilometers_driven,
-    'fuel_type':selected_fuel
+    'fuel_type':selected_fuel,
+    'No. of Previous Owners':num_previous_owners,
+    'Transmission Type':transmission_type,
 },index=[0])
 
 
