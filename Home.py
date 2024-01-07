@@ -45,29 +45,32 @@ gb_mse=GradientBoostModel['mse']
 gb_mae=GradientBoostModel['mae']
 
 
-def displaymodelReport():
-    if selected_algorithm=="Linear Regression":
-        st.write(f"- ##### R2 score for the Linear Regression model is: {lr_r2}")
-        st.write(f"- ##### Mean Squared Error for the Linear Regression model is: {lr_mse}")
-        st.write(f"- ##### Mean Absolute Error for for the Linear Regression model is: {lr_mae}")
-    elif selected_algorithm=="Decision Trees Regressor":
-        st.write(f"- ##### R2 score for the Decision Trees Regressor is:  {dt_r2}")
-        st.write(f"- ##### Mean Squared Error for the Decision Trees Regressor is:  {dt_mse}")
-        st.write(f"- ##### Mean Absolute Error for the Decision Trees Regressor is:  {dt_mae}")
-    elif selected_algorithm=="Random Forest Regressor":
-        st.write(f"- ##### R2 score for the Random Forest Regressor is:  {rf_r2}")
-        st.write(f"- ##### Mean Squared Error for the Random Forest Regressor is:  {rf_mse}")
-        st.write(f"- ##### Mean Absolute Error for the Random Forest Regressor is:  {rf_mae}")
-    elif selected_algorithm=="Gradient Boosting":
-        st.write(f"- ##### R2 score for the Gradient Boosting is:  {gb_r2}")
-        st.write(f"- ##### Mean Squared Error for the Gradient Boosting is:  {gb_mse}")
-        st.write(f"- ##### Mean Absolute Error for the Gradient Boosting is:  {gb_mae}")
-    elif selected_algorithm=="Support Vector Machines (SVM)":
-        st.write(f"- ##### R2 score for the Support Vector Machines (SVM) is:  {sv_r2}")
-        st.write(f"- ##### Mean Squared Error for the Support Vector Machines (SVM) is:  {sv_mse}")
-        st.write(f"- ##### Mean Absolute Error for the Support Vector Machines (SVM) is:  {sv_mae}")
+def modelMetrics():
+    st.write(f"#### Model Metrics:")
+    if selected_algorithm == "Linear Regression":
+        st.write(f"- ##### **_R2 score_** for the Linear Regression model is: {lr_r2}")
+        st.write(f"- ##### **_Mean Squared Error_** for the Linear Regression model is: {lr_mse}")
+        st.write(f"- ##### **_Mean Absolute Error_** for for the Linear Regression model is: {lr_mae}")
+    elif selected_algorithm == "Decision Trees Regressor":
+        st.write(f"- ##### **_R2 score_** for the Decision Trees Regressor is:  {dt_r2}")
+        st.write(f"- ##### **_Mean Squared Error_** for the Decision Trees Regressor is:  {dt_mse}")
+        st.write(f"- ##### **_Mean Absolute Error_** for the Decision Trees Regressor is:  {dt_mae}")
+    elif selected_algorithm == "Random Forest Regressor":
+        st.write(f"- ##### **_R2 score_** for the Random Forest Regressor is:  {rf_r2}")
+        st.write(f"- ##### **Mean Squared Error** for the Random Forest Regressor is:  {rf_mse}")
+        st.write(f"- ##### **Mean Absolute Error** for the Random Forest Regressor is:  {rf_mae}")
+    elif selected_algorithm == "Gradient Boosting":
+        st.write(f"- ##### **_R2 score_** for the Gradient Boosting is:  {gb_r2}")
+        st.write(f"- ##### **_Mean Squared Error_** for the Gradient Boosting is:  {gb_mse}")
+        st.write(f"- ##### **_Mean Absolute Error_** for the Gradient Boosting is:  {gb_mae}")
+    elif selected_algorithm == "Support Vector Machines (SVM)":
+        st.write(f"- ##### **_R2 score_** for the Support Vector Machines (SVM) is:  {sv_r2}")
+        st.write(f"- ##### **_Mean Squared Error_** for the Support Vector Machines (SVM) is:  {sv_mse}")
+        st.write(f"- ##### **_Mean Absolute Error_** for the Support Vector Machines (SVM) is:  {sv_mae}")
     else:
-        st.writ(f"Default Model Report")
+        st.write(f"Default Model Report")
+
+
 
 
 
@@ -175,14 +178,15 @@ def perform_actions(selected_company, selected_model, selected_year, kilometers_
          st.success(f"###### Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} kms driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
          st.success(f"###### Predicted Price: ₹{round(value,2)}")
     else: 
+        st.success(f"###### Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} kms driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
         st.success(f"Attention: Your car has been driven more than {max_thresholdDriven} kilometers, indicating high mileage.")
-        st.success(f"Considering this, the estimated selling price has been adjusted to a base price of {base_price_for_high_mileage}.")
+        st.success(f"Considering this, the estimated selling price has been adjusted to a base price of ₹{base_price_for_high_mileage}.")
 
 def modelReportFunc(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven,prediction):
     with st.spinner("Generating model report..."):
         time.sleep(3)  # Simulate a delay for calculations
     perform_actions(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven,prediction)
-    st.markdown(f"#### Model Report:")
+    st.markdown(f"<h3 style='text-align: center; color: #FF504C;'>Model Report</h3>", unsafe_allow_html=True)
     st.markdown(f"##### Here are the attributes associated with the chosen algorithm, {selected_algorithm}, revealing the model's performance indicators.")
 
 def model_selection():
@@ -213,7 +217,7 @@ if predict_button:
 if modelReport:
         prediction = model_selection()
         modelReportFunc(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven,prediction)
-        displaymodelReport()
+        modelMetrics()
 
 
 
