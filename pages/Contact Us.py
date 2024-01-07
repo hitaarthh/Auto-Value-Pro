@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(page_title="Contact Us", page_icon="🚗", layout="wide")
+st.set_page_config(page_title="Contact Us", page_icon="🚗", layout="wide",theme="dark")
 
 def main():
       # Custom CSS for styling
