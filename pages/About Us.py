@@ -12,7 +12,7 @@ def main():
 
     .about-title {
                 color: #FF504D; /* Change text color for the about title */
-                text-align: left;
+                text-align: center;
             }
     </style>
     """
@@ -34,9 +34,9 @@ def main():
 
     
     #### Technologies Used:
-    - Streamlit
-    - Python
-    - Machine Learning Libraries
+    - _Streamlit_
+    - _Python_
+    - _Machine Learning Libraries_
     
      #### Developers:
     - Hitarth Anand Rohra (AM.EN.U4EAC21032)

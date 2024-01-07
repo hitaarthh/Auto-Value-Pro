@@ -10,7 +10,7 @@ def main():
     }
     .about-title {
                 color: #FF504D; /* Change text color for the about title */
-                text-align: left;
+                text-align: center;
             }
     </style>
     """
