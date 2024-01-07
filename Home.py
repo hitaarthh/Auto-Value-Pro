@@ -133,7 +133,7 @@ def learningCurve(train_sizes, train_scores, test_scores, figsize=(8, 4)):
 
 #<!-The Machine Learning importing part ends here!>
 
-st.set_page_config(page_title=f"Auto Value Pro", page_icon="🚗", layout="wide",theme="dark")
+st.set_page_config(page_title=f"Auto Value Pro", page_icon="🚗", layout="wide")
 # Custom CSS for styling
 custom_css = """
     <style>
