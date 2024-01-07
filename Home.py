@@ -157,7 +157,7 @@ col9, col10 = st.columns(2)
 with col9:
     predict_button = st.button("Predict Car Price", help="Click to predict car price", key="predict_button", use_container_width=True)
 with col10:
-    modelReport = st.button("Model Report", help="Click to model report", key="model_report", use_container_width=True)
+    modelReport = st.button("Stats for nerds", help="Click to get model report", key="model_report", use_container_width=True)
 
 
 testingData = pd.DataFrame({
