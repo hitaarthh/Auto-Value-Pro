@@ -9,6 +9,10 @@ Auto Value Pro is a Streamlit web application that predicts the price of a car y
 - Modular code structure for better organization.
 - Integration with Streamlit for web-based deployment.
 
+## Project Preview:
+<img width="1394" alt="Screenshot 2024-01-07 at 5 21 47 PM" src="https://github.com/hitaarthh/Auto-Value-Pro/assets/91147942/a9ba35b6-3c4b-4899-bacf-a1c5a230c82b">
+
+
 ## Getting Started
 
 1. Clone the repository:
