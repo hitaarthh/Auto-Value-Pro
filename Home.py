@@ -5,33 +5,78 @@ import pickle
 import os
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
-
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 #Importing datasets and the Machine learning models
 df = pd.read_csv("dataset/Cleaned_Car_data.csv")
+
 #Loading the pickle file of the model.
 lrmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
 dtmodel_path = os.path.join('model', 'DecisionTreeModel.pkl')
-rfmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
-svmmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
-kmeansmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
-gbmodel_path = os.path.join('model', 'LinearRegressionModel.pkl')
+rfmodel_path = os.path.join('model', 'RandomForestModel.pkl')
+svmmodel_path = os.path.join('model', 'SVMModel.pkl')
+gbmodel_path = os.path.join('model', 'GradientBoostModel.pkl')
 
 lrModel = pickle.load(open(lrmodel_path, 'rb'))
+lr_pipeline = lrModel['pipeline']
+lr_r2=lrModel['r2score']
+lr_mse=lrModel['mse']
+lr_mae=lrModel['mae']
+
 dtModel = pickle.load(open(dtmodel_path, 'rb'))
+dt_pipeline = dtModel['pipeline']
+dt_r2=dtModel['r2score']
+dt_mse=dtModel['mse']
+dt_mae=dtModel['mae']
+
 rfModel = pickle.load(open(rfmodel_path, 'rb'))
+rf_pipeline = rfModel['pipeline']
+rf_r2=rfModel['r2score']
+rf_mse=rfModel['mse']
+rf_mae=rfModel['mae']
+
 svmModel = pickle.load(open(svmmodel_path, 'rb'))
-kmeansModel = pickle.load(open(kmeansmodel_path, 'rb'))
+sv_pipeline = svmModel['pipeline']
+sv_r2=rfModel['r2score']
+sv_mse=rfModel['mse']
+sv_mae=rfModel['mae']
+
 GradientBoostModel = pickle.load(open(gbmodel_path, 'rb'))
+gb_pipeline = GradientBoostModel['pipeline']
+gb_r2=GradientBoostModel['r2score']
+gb_mse=GradientBoostModel['mse']
+gb_mae=GradientBoostModel['mae']
+
+
+def displaymodelReport():
+    if selected_algorithm=="Linear Regression":
+        st.write(f"- ##### R2 score for the Linear Regression model is: {lr_r2}")
+        st.write(f"- ##### Mean Squared Error for the Linear Regression model is: {lr_mse}")
+        st.write(f"- ##### Mean Absolute Error for for the Linear Regression model is: {lr_mae}")
+    elif selected_algorithm=="Decision Trees Regressor":
+        st.write(f"- ##### R2 score for the Decision Trees Regressor is:  {dt_r2}")
+        st.write(f"- ##### Mean Squared Error for the Decision Trees Regressor is:  {dt_mse}")
+        st.write(f"- ##### Mean Absolute Error for the Decision Trees Regressor is:  {dt_mae}")
+    elif selected_algorithm=="Random Forest Regressor":
+        st.write(f"- ##### R2 score for the Random Forest Regressor is:  {rf_r2}")
+        st.write(f"- ##### Mean Squared Error for the Random Forest Regressor is:  {rf_mse}")
+        st.write(f"- ##### Mean Absolute Error for the Random Forest Regressor is:  {rf_mae}")
+    elif selected_algorithm=="Gradient Boosting":
+        st.write(f"- ##### R2 score for the Gradient Boosting is:  {gb_r2}")
+        st.write(f"- ##### Mean Squared Error for the Gradient Boosting is:  {gb_mse}")
+        st.write(f"- ##### Mean Absolute Error for the Gradient Boosting is:  {gb_mae}")
+    elif selected_algorithm=="Support Vector Machines (SVM)":
+        st.write(f"- ##### R2 score for the Support Vector Machines (SVM) is:  {sv_r2}")
+        st.write(f"- ##### Mean Squared Error for the Support Vector Machines (SVM) is:  {sv_mse}")
+        st.write(f"- ##### Mean Absolute Error for the Support Vector Machines (SVM) is:  {sv_mae}")
+    else:
+        st.writ(f"Default Model Report")
+
 
 
 #<!-The Machine Learning importing part ends here!>
 
 st.set_page_config(page_title=f"Auto Value Pro", page_icon="🚗", layout="wide")
-favicon_html = """
-    <link rel="shortcut icon" href="speed.png" type="image/x-icon">
-"""
-st.markdown(favicon_html, unsafe_allow_html=True)
 # Custom CSS for styling
 custom_css = """
     <style>
@@ -66,7 +111,6 @@ algorithm_options = [
     "Decision Trees Regressor",
     "Gradient Boosting",
     "Support Vector Machines (SVM)",
-    "K-Nearest Neighbors (KNN)"
 ]
 
 # User input forms
@@ -129,9 +173,10 @@ max_thresholdDriven = 200000
 base_price_for_high_mileage = 100000
 
 def perform_actions(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven,prediction):
+    value=prediction[0]
     if kilometers_driven < max_thresholdDriven:
          st.success(f"###### Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} kms driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
-         st.success(f"###### Predicted Price: {round(prediction,2)}")
+         st.success(f"###### Predicted Price: {round(value,2)}")
     else: 
         st.success(f"Attention: Your car has been driven more than {max_thresholdDriven} kilometers, indicating high mileage.")
         st.success(f"Considering this, the estimated selling price has been adjusted to a base price of {base_price_for_high_mileage}.")
@@ -140,27 +185,25 @@ def modelReportFunc(selected_company, selected_model, selected_year, kilometers_
     with st.spinner("Generating model report..."):
         time.sleep(3)  # Simulate a delay for calculations
     perform_actions(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven,prediction)
-    st.markdown(f"##### Model Report:")
-    st.markdown(f"- Here are the attributes associated with the chosen algorithm, {selected_algorithm}, revealing the model's performance indicators.")
+    st.markdown(f"#### Model Report:")
+    st.markdown(f"##### Here are the attributes associated with the chosen algorithm, {selected_algorithm}, revealing the model's performance indicators.")
 
 def model_selection():
     y_predict=[]
     if selected_algorithm == "Linear Regression":
-        y_predict = lrModel.predict(testingData)
+        y_predict = lr_pipeline.predict(testingData)
     elif selected_algorithm == "Random Forest Regressor":
-        y_predict = rfModel.predict(testingData)
+        y_predict = rf_pipeline.predict(testingData)
     elif selected_algorithm ==  "Decision Trees Regressor":
-        y_predict = dtModel.predict(testingData)
+        y_predict = dt_pipeline.predict(testingData)
     elif selected_algorithm == "Gradient Boosting":
-        y_predict = GradientBoostModel.predict(testingData)
+        y_predict = gb_pipeline.predict(testingData)
     elif selected_algorithm == "Support Vector Machines (SVM)":
         y_predict = svmModel.predict(testingData)
-    elif selected_algorithm == "K-Nearest Neighbors (KNN)":
-        y_predict = kmeansModel.predict(testingData)
     else:
         y_predict=["0.00"]
-    y_predic=y_predict[0]
-    return y_predic
+    # y_predic=y_predict[0]
+    return y_predict
 
 # Display results if the button is pressed
 if predict_button:
@@ -173,7 +216,7 @@ if predict_button:
 if modelReport:
         prediction = model_selection()
         modelReportFunc(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven,prediction)
-
+        displaymodelReport()
 
 
 
