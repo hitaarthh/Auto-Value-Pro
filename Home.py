@@ -3,6 +3,9 @@ import time
 import pandas as pd
 import pickle
 import os
+# from sklearn.model_selection import learning_curve
+import numpy as np
+import matplotlib.pyplot as plt
 
 #Importing datasets and the Machine learning models
 df = pd.read_csv("dataset/Cleaned_Car_data.csv")
@@ -19,60 +22,114 @@ lr_pipeline = lrModel['pipeline']
 lr_r2=lrModel['r2score']
 lr_mse=lrModel['mse']
 lr_mae=lrModel['mae']
+lr_train_sizes = lrModel['train_sizes']
+lr_train_scores=lrModel['train_scores']
+lr_test_scores=lrModel['test_scores']
 
 dtModel = pickle.load(open(dtmodel_path, 'rb'))
 dt_pipeline = dtModel['pipeline']
 dt_r2=dtModel['r2score']
 dt_mse=dtModel['mse']
 dt_mae=dtModel['mae']
+dt_train_sizes =dtModel['train_sizes']
+dt_train_scores=dtModel['train_scores']
+dt_test_scores=dtModel['test_scores']
 
 rfModel = pickle.load(open(rfmodel_path, 'rb'))
 rf_pipeline = rfModel['pipeline']
 rf_r2=rfModel['r2score']
 rf_mse=rfModel['mse']
 rf_mae=rfModel['mae']
+rf_train_sizes =rfModel['train_sizes']
+rf_train_scores=rfModel['train_scores']
+rf_test_scores=rfModel['test_scores']
 
 svmModel = pickle.load(open(svmmodel_path, 'rb'))
 sv_pipeline = svmModel['pipeline']
-sv_r2=rfModel['r2score']
-sv_mse=rfModel['mse']
-sv_mae=rfModel['mae']
+sv_r2=svmModel['r2score']
+sv_mse=svmModel['mse']
+sv_mae=svmModel['mae']
+sv_train_sizes =svmModel['train_sizes']
+sv_train_scores=svmModel['train_scores']
+sv_test_scores=svmModel['test_scores']
 
 GradientBoostModel = pickle.load(open(gbmodel_path, 'rb'))
 gb_pipeline = GradientBoostModel['pipeline']
 gb_r2=GradientBoostModel['r2score']
 gb_mse=GradientBoostModel['mse']
 gb_mae=GradientBoostModel['mae']
-
+gb_train_sizes =GradientBoostModel['train_sizes']
+gb_train_scores=GradientBoostModel['train_scores']
+gb_test_scores=GradientBoostModel['test_scores']
 
 def modelMetrics():
     st.write(f"#### Model Metrics:")
+
     if selected_algorithm == "Linear Regression":
-        st.write(f"- ##### **_R2 score_** for the Linear Regression model is: {lr_r2}")
-        st.write(f"- ##### **_Mean Squared Error_** for the Linear Regression model is: {lr_mse}")
-        st.write(f"- ##### **_Mean Absolute Error_** for for the Linear Regression model is: {lr_mae}")
+        metrics_data = {
+            'count':[1,2,3],
+            'Metrics': ['R2 Score', 'Mean Squared Error', 'Mean Absolute Error'],
+            'Linear Regression': [lr_r2, lr_mse, lr_mae],}
+        metrics_df = pd.DataFrame(metrics_data)
+        metrics_df.set_index('count', inplace=True)
+        st.table(metrics_df)
+        learningCurve(lr_train_sizes,lr_train_scores,lr_test_scores)
     elif selected_algorithm == "Decision Trees Regressor":
-        st.write(f"- ##### **_R2 score_** for the Decision Trees Regressor is:  {dt_r2}")
-        st.write(f"- ##### **_Mean Squared Error_** for the Decision Trees Regressor is:  {dt_mse}")
-        st.write(f"- ##### **_Mean Absolute Error_** for the Decision Trees Regressor is:  {dt_mae}")
+        metrics_data = {
+            'count':[1,2,3],
+            'Metrics': ['R2 Score', 'Mean Squared Error', 'Mean Absolute Error'],
+            'Decision Trees Regressor': [dt_r2, dt_mse, dt_mae],}
+        metrics_df = pd.DataFrame(metrics_data)
+        metrics_df.set_index('count', inplace=True)
+        st.table(metrics_df)
+        learningCurve(dt_train_sizes,dt_train_scores,dt_test_scores)
+
     elif selected_algorithm == "Random Forest Regressor":
-        st.write(f"- ##### **_R2 score_** for the Random Forest Regressor is:  {rf_r2}")
-        st.write(f"- ##### **Mean Squared Error** for the Random Forest Regressor is:  {rf_mse}")
-        st.write(f"- ##### **Mean Absolute Error** for the Random Forest Regressor is:  {rf_mae}")
+        metrics_data = {
+            'count':[1,2,3],
+            'Metrics': ['R2 Score', 'Mean Squared Error', 'Mean Absolute Error'],
+            'Random Forest Regressor': [rf_r2, rf_mse, rf_mae],}
+        metrics_df = pd.DataFrame(metrics_data)
+        metrics_df.set_index('count', inplace=True)
+        st.table(metrics_df)
+        learningCurve(rf_train_sizes,rf_train_scores,rf_test_scores)
+
     elif selected_algorithm == "Gradient Boosting":
-        st.write(f"- ##### **_R2 score_** for the Gradient Boosting is:  {gb_r2}")
-        st.write(f"- ##### **_Mean Squared Error_** for the Gradient Boosting is:  {gb_mse}")
-        st.write(f"- ##### **_Mean Absolute Error_** for the Gradient Boosting is:  {gb_mae}")
+        metrics_data = {
+            'count':[1,2,3],
+            'Metrics': ['R2 Score', 'Mean Squared Error', 'Mean Absolute Error'],
+            'Gradient Boosting': [gb_r2, gb_mse, gb_mae],}
+        metrics_df = pd.DataFrame(metrics_data)
+        metrics_df.set_index('count', inplace=True)
+        st.table(metrics_df)
+        learningCurve(gb_train_sizes,gb_train_scores,gb_test_scores)
+
     elif selected_algorithm == "Support Vector Machines (SVM)":
-        st.write(f"- ##### **_R2 score_** for the Support Vector Machines (SVM) is:  {sv_r2}")
-        st.write(f"- ##### **_Mean Squared Error_** for the Support Vector Machines (SVM) is:  {sv_mse}")
-        st.write(f"- ##### **_Mean Absolute Error_** for the Support Vector Machines (SVM) is:  {sv_mae}")
+        metrics_data = {
+            'count':[1,2,3],
+            'Metrics': ['R2 Score', 'Mean Squared Error', 'Mean Absolute Error'],
+            'Support Vector Machines (SVM)': [sv_r2, sv_mse, sv_mae],}
+        metrics_df = pd.DataFrame(metrics_data)
+        metrics_df.set_index('count', inplace=True)
+        st.table(metrics_df)
+        learningCurve(sv_train_sizes,sv_train_scores,sv_test_scores)
+
     else:
         st.write(f"Default Model Report")
 
-
-
-
+def learningCurve(train_sizes, train_scores, test_scores, figsize=(8, 4)):
+    st.write(f"#### Learning Curve:")
+    train_scores_mean = -np.mean(train_scores, axis=1)
+    test_scores_mean = -np.mean(test_scores, axis=1)
+    fig, ax = plt.subplots(figsize=figsize)
+    ax.plot(train_sizes, train_scores_mean, label='Training Score')
+    ax.plot(train_sizes, test_scores_mean, label='Validation Score')
+    ax.set_xlabel('Training Set Size')
+    ax.set_ylabel('Negative Mean Squared Error')
+    ax.legend()
+    plt.subplots_adjust(left=3.1, right=5.9)
+    plt.tight_layout()
+    st.pyplot(fig)
 
 #<!-The Machine Learning importing part ends here!>
 
@@ -118,22 +175,17 @@ col1, col2 = st.columns(2)
 with col1:
     # Selectbox for choosing the company
     selected_company = st.selectbox(f"##### Select the Company:", company_options)
-
 # Filter the unique car names based on the selected company
 carname = df[df['company'] == selected_company]['name'].unique().tolist()
-
 # Initialize model_options with a default value
 model_options = ['default value']
-
 if carname:
     # Extract models for the selected company based on the length of the company name
     company_length = len(selected_company)
     model_options = [f"{selected_company} {car[company_length+1:]}" for car in carname if car.startswith(selected_company + ' ')]
     model_options.sort()
-
 with col2:
     selected_model = st.selectbox("##### Select the Model:", model_options)
-
 
 col3, col4 = st.columns(2)
 with col3:
