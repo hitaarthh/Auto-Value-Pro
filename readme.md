@@ -33,9 +33,37 @@ Auto Value Pro is a Streamlit web application that predicts the price of a car y
 
 ## Project Structure
 
+- **Home.py**
+- **__pycache__/**
+  - about.cpython-311.pyc
+  - about_page.cpython-311.pyc
+  - decomp.cpython-311.pyc
+- **client_secrets.json**
+- **dataset/**
+  - Cleaned_Car_data.csv
+  - quikr_car.csv
+- **kernelVersion/**
+  - DecisionTreeModel.ipynb
+  - GradientBoostModel.ipynb
+  - LinearRegressionModel.ipynb
+  - RandomForestModel.ipynb
+  - SVM.ipynb
+- **model/**
+  - DecisionTreeModel.pkl
+  - GradientBoostModel.pkl
+  - LinearRegressionModel.pkl
+  - RandomForestModel.pkl
+  - SVMModel.pkl
+- **pages/**
+  - **About Us.py**
+  - **Contact Us.py**
+  - **__pycache__/**
+    - about.cpython-311.pyc
+- **readme.md**
+- **requirements.txt**
 
-- `main_app.py`: The main Streamlit script.
-- `pages/`: Directory containing page-specific Python files.
+
+
 
 ## Contributing
 
