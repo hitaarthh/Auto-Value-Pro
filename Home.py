@@ -214,7 +214,7 @@ with col6:
 
 col7, col8 = st.columns(2)
 with col7:
-    kilometers_driven = st.number_input("##### Enter the Number of Kilometers Driven:", min_value=10.00, value=0.00)
+    kilometers_driven = st.number_input("##### Enter the Number of Kilometers Driven:", min_value=0.00, value=10.00)
 with col8:
     selected_algorithm = st.selectbox("##### Choose the Prediction Algorithm:", algorithm_options)
 
