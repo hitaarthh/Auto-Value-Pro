@@ -39,11 +39,11 @@ def main():
     - _Machine Learning Libraries_
     
      #### Developers:
-    - Hitarth Anand Rohra (AM.EN.U4EAC21032)
-    - Ansh Grover (AM.EN.U4EAC21015)
-    - Amodh Anil (AM.EN.U4EAC21010)
-    - Anirudh K (AM.EN.U4EAC21012)
-    - Nandana V V (AM.EN.U4EAC21052)  
+    - Hitarth Anand Rohra
+    - Ansh Grover 
+    - Amodh Anil 
+    - Anirudh K 
+    - Nandana V V  
                     
     [Source Code](https://github.com/hitaarthh/Auto-Value-Pro)
              

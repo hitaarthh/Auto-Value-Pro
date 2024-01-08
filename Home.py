@@ -210,7 +210,7 @@ col5, col6 = st.columns(2)
 with col5:
     transmission_type = st.radio("##### Transmission Type:", ["Manual", "Automatic"])
 with col6:
-    num_previous_owners = st.slider("##### Number of Previous Owners:", min_value=0, max_value=5, value=1, step=1)
+    num_previous_owners = st.slider("##### Number of Previous Owners:", min_value=1, max_value=5, value=1, step=1)
 
 col7, col8 = st.columns(2)
 with col7:
