@@ -151,6 +151,10 @@ custom_css = """
         color: #FF504C; /* Change text color for title text */
         text-align: center;
     }
+    .subtitle-text {
+        color: #FF504C; /* Change text color for title text */
+        text-align: center;
+    }
     </style>
 """
 
@@ -162,6 +166,8 @@ st.sidebar.markdown("You are on the Home Page")
 
 # Title, subtitle, and description with center alignment
 st.markdown("<h1 class='title-text'>Auto Value Pro : A Vehicle Valuation Wizard</h1>", unsafe_allow_html=True)
+st.markdown("<h5 class='subtitle-text'><i>\"Empowering Decisions, One Car at a Time\"</i></h5>", unsafe_allow_html=True)
+
 st.markdown("<h5 style='text-align: center;'>This app predicts the price of a car you want to sell or buy. Try filling the details below:</h5>", unsafe_allow_html=True)
 
 #<!-Form to accept data-!>
@@ -171,8 +177,8 @@ year_options.append(1995)
 fuel_options = ["Petrol", "Diesel", "LPG"]
 algorithm_options = [
     "Linear Regression",
-    "Random Forest Regressor",
     "Decision Trees Regressor",
+    "Random Forest Regressor",
     "Gradient Boosting",
     "Support Vector Machines (SVM)",
 ]#Defining different types of models on which predictions can be made.
