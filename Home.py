@@ -171,7 +171,7 @@ st.markdown("<h5 style='text-align: center;'>This app predicts the price of a ca
 st.markdown(f"""#### How it Works:""")
 st.markdown(f""" 
    - Select the car company, model, year of purchase, fuel type, and other relevant details.
-   - *Click on the "Predict Car Price" button.*
+   - Click on the "Predict Car Price" button.
    - The app uses machine learning algorithms to predict the price of the selected car.
     """
 )
