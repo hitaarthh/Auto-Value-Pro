@@ -37,8 +37,8 @@ def main():
      #### Developers:
     - [Hitarth Anand Rohra](https://hitaarthh.github.io/)
     - [Ansh Grover]()
-    - [Amodh Anil]() 
-    - [Anirudh K]() 
+    - [Amodh Anil](https://www.linkedin.com/in/amodh-anil-a78282236/) 
+    - [Anirudh K](https://www.linkedin.com/in/anirudh-kuldeep-42ab8a282/) 
     - [Nandana V V]()  
                     
     [Source Code](https://github.com/hitaarthh/Auto-Value-Pro)
