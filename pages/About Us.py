@@ -37,7 +37,7 @@ def main():
      #### Developers:
     - [Hitarth Anand Rohra](https://hitaarthh.github.io/)
     - [Ansh Grover]()
-    - [Amodh Anil](https://www.linkedin.com/in/amodh-anil-a78282236/) 
+    - [Amodh Anil]() 
     - [Anirudh K](https://www.linkedin.com/in/anirudh-kuldeep-42ab8a282/) 
     - [Nandana V V]()  
                     

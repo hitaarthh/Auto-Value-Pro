@@ -167,12 +167,12 @@ st.sidebar.markdown("You are on the Home Page")
 # Title, subtitle, and description with center alignment
 st.markdown("<h1 class='title-text'>Auto Value Pro : A Vehicle Valuation Wizard</h1>", unsafe_allow_html=True)
 st.markdown("<h5 class='subtitle-text'><i>\"Empowering Decisions, One Car at a Time\"</i></h5>", unsafe_allow_html=True)
-st.markdown("<h5 style='text-align: center;'>This app predicts the price of a car you want to sell or buy.</h5>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: center;'>This app predicts the price of a car you want to sell or buy</h5>", unsafe_allow_html=True)
 st.markdown(f"""#### How it Works:""")
 st.markdown(f""" 
    - Select the car company, model, year of purchase, fuel type, and other relevant details.
    - Click on the "Predict Car Price" button.
-   - The app uses machine learning algorithms to predict the price of the selected car.
+   - The app uses machine learning algorithms to predict the price of the selected car, the best fitted model is selected by default for the prediction.
     """
 )
 
@@ -293,3 +293,4 @@ if modelReport:
         prediction = model_selection()
         modelReportFunc(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven,prediction)
         modelMetrics()
+
