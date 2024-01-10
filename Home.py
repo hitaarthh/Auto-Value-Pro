@@ -248,7 +248,7 @@ base_price_for_high_mileage = 100000
 def perform_actions(selected_company, selected_model, selected_year, kilometers_driven, transmission_type, num_previous_owners, selected_algorithm, max_thresholdDriven,prediction):
     value=prediction[0]
     st.markdown(f"_**Disclaimer**: The predictions provided by this app are for reference purposes only. Actual market conditions may vary._")
-    if kilometers_driven < max_thresholdDriven or value<=0:
+    if kilometers_driven < max_thresholdDriven and value>0:
          st.success(f"###### Predicting car price for {selected_company} {selected_model} ({selected_year}) with {kilometers_driven} kms driven, {transmission_type} transmission, and {num_previous_owners} previous owner(s) using {selected_algorithm} algorithm.")
          st.success(f"###### Predicted Price: ₹{round(value,2)}")
     else: 
