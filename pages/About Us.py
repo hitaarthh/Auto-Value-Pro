@@ -23,7 +23,7 @@ def main():
 
     st.markdown("<h1 class='about-title'>About Us</h1>", unsafe_allow_html=True)
     st.write("""
-    ###### Auto Value Pro, an advanced web app, predicts car prices using sophisticated machine learning. Users input details like make, model, and year, initiating dynamic analysis with models like Linear Regression as default.
+    Auto Value Pro, an advanced web app, predicts car prices using sophisticated machine learning. Users input details like make, model, and year, initiating dynamic analysis with models like Linear Regression as default.
 
     ###### Ensemble models, including Decision Tree, Random Forest, Gradient Boosting, and Support Vector Machine, enhance accuracy. The app selects the best model for each scenario, ensuring precision tailored to each car.
 
