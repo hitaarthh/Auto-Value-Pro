@@ -41,10 +41,15 @@ def main():
     - [Anirudh K](https://www.linkedin.com/in/anirudh-kuldeep-42ab8a282/) 
     - [Nandana V V]()  
                     
-    [Source Code](https://github.com/hitaarthh/Auto-Value-Pro)
-             
-    [Data Set Used](https://github.com/hitaarthh/Auto-Value-Pro/tree/main/dataset)      
+    Source Code and Dataset: [hitaarthh/Auto-Value-Pro](https://github.com/hitaarthh/Auto-Value-Pro)
+
     """)
+
+    
+    
+
+
+    # Display GitHub logo
 
 if __name__ == "__main__":
     main()
