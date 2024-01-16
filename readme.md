@@ -36,10 +36,6 @@ Auto Value Pro is a Streamlit web application that predicts the price of a car y
 4. Open the provided URL in your browser to use the application [Auto Value Pro](https://autovaluepro.streamlit.app/).
 
 
-## Contributing
-
-If you would like to contribute to this project, please follow the [Contributing Guidelines](CONTRIBUTING.md).
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
