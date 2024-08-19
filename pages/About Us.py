@@ -34,12 +34,9 @@ def main():
     - _Python_
     - _Machine Learning Libraries_
     
-     #### Developers:
+     #### Developer:
     - [Hitarth Anand Rohra](https://hitaarthh.github.io/)
-    - [Ansh Grover]()
-    - [Amodh Anil]() 
-    - [Anirudh K](https://www.linkedin.com/in/anirudh-kuldeep-42ab8a282/) 
-    - [Nandana V V]()  
+    
                     
     Source Code and Dataset: [hitaarthh/Auto-Value-Pro](https://github.com/hitaarthh/Auto-Value-Pro)
 
